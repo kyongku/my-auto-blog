@@ -1,7 +1,7 @@
 name: Daily Auto Post
 on:
   schedule:
-    - cron: '0 23 * * *' # 한국 시간 매일 아침 8시
+    - cron: '0 23 * * *'
   workflow_dispatch:
 
 jobs:
@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # v3 -> v4 업데이트 (Node.js 경고 해결)
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # v4 -> v5 업데이트 (Node.js 경고 해결)
         with:
-          python-version: '3.11' # 최신 라이브러리 대응을 위해 3.11 권장
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
